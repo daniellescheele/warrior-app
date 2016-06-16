@@ -4,18 +4,33 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Warrior App</title>
+  	<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div ng-app="app">
+</head>
+
+  <body ng-app="app">
+      <div ng-view></div>
+
+
      <div ng-controller="MainCtrl as main">
       <h1>{{main.heading}}</h1>
+      <div>
+        <button type="button" class="btn btn-primary btn-lg" ng-click="main.login()">Login</button>
+        <button type="button" class="btn btn-primary btn-lg" ng-click="main.register()">Register</button>
      </div>
-  	</div>
+     </div>
+
+    <!-- <div ng-controller="LoginCtrl as login"> -->
+    <!-- </div> -->
+
+    <!-- <div ng-include="views/login-modal/loginmodal.html"></div> -->
+
   	<script src=“lib/firebase/firebase.js”></script>
   	<script src="lib/angular/angular.min.js"></script>
-  	<script src="lib/angular-route/angular-route.min.js"></script>"
+  	<script src="lib/angular-route/angular-route.min.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
   	<script src="main.js"></script>
+    <script src="controllers/LoginCtrl.js"></script>
   </body>
 </html>
 
