@@ -9,7 +9,7 @@
 </head>
 
   <body ng-app="app">
-      <div ng-view></div>
+
 
 
      <div ng-controller="MainCtrl as main">
@@ -20,17 +20,24 @@
      </div>
      </div>
 
+     <div ng-view></div>
+
     <!-- <div ng-controller="LoginCtrl as login"> -->
     <!-- </div> -->
 
     <!-- <div ng-include="views/login-modal/loginmodal.html"></div> -->
 
-  	<script src=“lib/firebase/firebase.js”></script>
-  	<script src="lib/angular/angular.min.js"></script>
-  	<script src="lib/angular-route/angular-route.min.js"></script>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-route/angular-route.min.js"></script>
+  	<script src="lib/firebase/firebase.js"></script>
     <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-  	<script src="main.js"></script>
-    <script src="controllers/LoginCtrl.js"></script>
+    <script src="main.js"></script>
+    <script src="config.js"></script>
+    <!-- <script src="initializefirebase.js"></script> -->
+    <script src="factories/auth.js"></script>
+    <script src="controllers/AuthCtrl.js"></script>
+
+
   </body>
 </html>
 

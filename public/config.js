@@ -1,19 +1,19 @@
 // home - roles view - user role - warrior
 
 angular.module('app')
-  app.config(['$routeProvider',
+  .config(['$routeProvider',
    function($routeProvider) {
     $routeProvider.
-      when( '/roles'  {
-        templateUrl: 'roles-info.html.',
+      when( '/roles',  {
+        templateUrl: 'roles-info.html',
         controller: 'role-ctrl.js'
       })
-      .when( '/my_roles'  {
-        templateUrl: 'roles-action.html.',
-        controller: 'role-action-ctrl.js'
+      .when('/my_roles',  {
+        templateUrl: '/views/user-role.html',
+        controller: 'RoleActionCtrl'
       })
-      .when( '/warrior'  {
-        templateUrl: 'warrior.html.',
+      .when( '/warrior', {
+        templateUrl: 'warrior.html',
         controller: 'snapshot-ctrl.js'
       })
     }
