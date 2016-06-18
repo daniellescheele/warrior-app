@@ -1,6 +1,6 @@
 angular.module('app')
 
-  .factory('AuthFactory', function($timeout){
+  .factory('AuthFactory', function($timeout,$http){
 
     var config = {
       apiKey: "AIzaSyC_W2DmU1_tZXYzP_gnVHeMW3JPx-lqhxs",
@@ -12,50 +12,124 @@ angular.module('app')
 
     const users = {
 
-    }
+    };
 
-    let currentUser = null
+    let currentUser = null;
 
+
+    firebase.auth().onAuthStateChanged((user) => {
+      console.log("auth state changed");
+      if (user) {
+        console.log("auth object here");
+        var users = null;
+        $http.get('https://warrior-app.firebaseio.com/tribes.json')
+          .then((res) => {
+            users = res.data;
+            return users;
+          })
+          .then((users) => {
+            for (var key in users) {
+              if (users[key].uid === users.uid) {
+                currentUser = users[key];
+                console.log("currentUser: ", currentUser);
+              }
+            }
+          })
+        }
+    })
 
     return {
-      register(email, password) {
-        console.log(email, password)
-        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-        var errorCode = error.code;
-        var errorMessage = error.message;
 
-        });
-        return $timeout().then(() => (
-          users[email] === password
-            ? Promise.resolve(currentUser = email)
-            : Promise.reject('Authentication Failed')
+      login (email, password) {
+       return $timeout().then(() => (
+        firebase.auth().signInWithEmailAndPassword(email, password)
         ))
       },
-      login(email, password) {
-        console.log(email, password)
-        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-        var errorCode = error.code;
-        var errorMessage = error.message;
 
-        });
+      register (email, password) {
         return $timeout().then(() => (
-          users[email] === password
-            ? Promise.resolve(currentUser = email)
-            : Promise.reject('Authentication Failed')
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+        ))
+      },
+
+      logout(logout) {
+        return $timeout().then(() => (
+        firebase.auth().signOut
         ))
       },
 
 
-      logout () {
-        return $timeout().then(() => (
-          currentUser = null
-        ))
+
+      sendTribeInfo(tribe) {
+        console.log(tribe)
+
+        $http.post('https://warrior-app.firebaseio.com/tribes.json', tribe)
       },
 
-      getUser () {
-        return currentUser
+      // *****************************************
+      // checkEmailsForTribes(email) {
+      //   if email === tribe id get tribe object
+      //     else register
+      // }
+      // *******************************************
+
+
+
+      getUser: function(param) {
+        if (param) {
+          return currentUser[param];
+        } else {
+            return currentUser;
+          }
+      },
+
+      getUserAuth: function() {
+        return $q.when(firebase.auth().currentUser);
       }
+
     }
   })
 
+    // return {
+  //     register(email, password) {
+  //       console.log(email, password)
+  //       firebase.auth().createUserWithEmailAndPassword(email, password).then((uid) => {
+  //         $http.post ("https://warrior-app.firebaseio.com/auth.json", uid);
 
+  //       }).catch(function(error) {
+  //       var errorCode = error.code;
+  //       var errorMessage = error.message;
+
+  //       });
+  //       return $timeout().then(() => (
+  //         users[email] === password
+  //           ? Promise.resolve(currentUser = email)
+  //           : Promise.reject('Authentication Failed')
+  //       ))
+  //     },
+  //     login(email, password) {
+  //       console.log(email, password)
+  //       firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+  //       var errorCode = error.code;
+  //       var errorMessage = error.message;
+
+  //       });
+  //       return $timeout().then(() => (
+  //         users[email] === password
+  //           ? Promise.resolve(currentUser = email)
+  //           : Promise.reject('Authentication Failed')
+  //       ))
+  //     },
+
+
+  //     logout () {
+  //       return $timeout().then(() => (
+  //         currentUser = null
+  //       ))
+  //     },
+
+  //     getUser () {
+  //       return currentUser
+  //     }
+  //   }
+  // })

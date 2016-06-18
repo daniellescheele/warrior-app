@@ -16,5 +16,9 @@ angular.module('app')
         templateUrl: 'warrior.html',
         controller: 'snapshot-ctrl.js'
       })
+      .when('/create_tribe', {
+        templateUrl: '/views/createTribe.html',
+        controller: 'TribeCtrl'
+      })
     }
 ]);
