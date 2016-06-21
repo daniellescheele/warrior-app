@@ -1,6 +1,14 @@
 angular.module('app')
-  .controller('TribeCtrl', function (TribeFactory) {
+  .controller('TribeCtrl', function (TribeFactory, $location) {
    const tribe = this
+   let template = null;
+
+
+    tribe.template = function () {
+      console.log("template picked",tribe.imgtemplate)
+      template = tribe.imgtemplate;
+      console.log("template is", template)
+    }
 
     tribe.create = function () {
       console.log("submit clocked")
@@ -11,10 +19,12 @@ angular.module('app')
         email5: tribe.invite4,
         email6: tribe.invite5
       };
-      console.log(invites)
-        TribeFactory.create(invites)
-        .then(() => $location.path('/roles'))
-        .catch(() => alert('Login Failed'))
+
+     TribeFactory.create(invites)
+        .then(() => (TribeFactory.template(template)))
+        .then(() => (TribeFactory.updateTribeInfo(invites, template)))
+        .then(() => {$location.path('/roles')})
+        .catch((error) => alert('error'));
     }
   })
 // build up an email  object and call it

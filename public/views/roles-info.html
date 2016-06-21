@@ -1,0 +1,43 @@
+<div class="container-fluid" ng-controller="RoleCtrl as role">
+<h1>roles information</h1>
+
+	<form ng-click="role.choose()" class="form-horizontal" validate>
+		<div class="form-group" class="row">
+			<div class="row">
+    	<label for="tribeName" class="col-xs-6 control-label">Choose your role</label>
+    	</div>
+    	<div class="row">
+        <div>
+     		  <div class="col-sm-4" class="template">
+     		  	<img  src="/roles/headdress.png" alt="..." class="img-rounded" class="center-block">
+     		  	<input type="radio" name="options" class="center-block" ng-model="role.img" value="1">
+    	 	 </div>
+					<div class="col-sm-4" class="template">
+            <img src="/roles/arrows.png" alt="..." class="img-rounded" class="center-block">
+            <input type="radio" name="options" class="center-block" ng-model="role.img" value="2">
+        	</div>
+        	<div class="col-sm-4" class="template">
+						<img src="/roles/flowers.png" alt="..." class="img-rounded" class="center-block">
+						<input type="radio" name="options" class="center-block" ng-model="role.img" value="3">
+        	</div>
+        </div>
+      </div>
+       	<div class="row">
+        <div>
+     		  <div class="col-sm-4" class="template">
+     		  	<img  src="/roles/coat.png" alt="..." class="img-rounded" class="center-block">
+     		  	<input type="radio" name="options" class="center-block" ng-model="role.img" value="4">
+    	 	 </div>
+					<div class="col-sm-4" class="template">
+            <img src="/roles/mask.png" alt="..." class="img-rounded" class="center-block">
+            <input type="radio" name="options" class="center-block" ng-model="role.img" value="5">
+        	</div>
+        	<div class="col-sm-4" class="template">
+						<img src="/roles/tattoos.png" alt="..." class="img-rounded" class="center-block">
+						<input type="radio" name="options" class="center-block" ng-model="role.img" value="6">
+        	</div>
+        </div>
+      </div>
+    </div>
+    </form>
+   </div>

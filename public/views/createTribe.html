@@ -2,17 +2,30 @@
     <div class="row">
 	<h1>Create Your Tribe</h1>
     </div>
-	<form ng-submit="tribe.create()" class="form-horizontal" validate>
+	<form ng-click="tribe.template()" class="form-horizontal" validate>
 		<div class="form-group" class="row">
 			<div class="row">
-    	<label for="tribeName" class="col-xs-6 control-label">Warrior</label>
+    	<label for="tribeName" class="col-xs-6 control-label">Choose your warrior's template</label>
     	</div>
     	<div class="row">
-    	<div class="col-xs-6">
-     		<input type="text" ng-model="tribe.name" class="form-control" id="tribeName" placeholder="Name Your Warrior">
-    	</div>
-    	</div>
- 		</div>
+        <div>
+     		  <div class="col-sm-4" class="template">
+     		  	<img  src="/roles/template1.png" alt="..." class="img-rounded" class="center-block">
+     		  	<input type="radio" name="options" class="center-block" ng-model="tribe.imgtemplate" value="1">
+    	 	 </div>
+					<div class="col-sm-4" class="template">
+            <img src="/roles/template1.png" alt="..." class="img-rounded" class="center-block">
+            <input type="radio" name="options" class="center-block" ng-model="tribe.imgtemplate" value="2">
+        	</div>
+        	<div class="col-sm-4" class="template">
+						<img src="/roles/template1.png" alt="..." class="img-rounded" class="center-block">
+						<input type="radio" name="options" class="center-block" ng-model="tribe.imgtemplate" value="3">
+        	</div>
+        </div>
+      </div>
+    </div>
+    </form>
+    <form ng-submit="tribe.create()" class="form-horizontal" validate>
   	<div class="form-group" class="row">
   		<div class="row">
   		<label for="invite" class="col-xs-6 control-label">Invite five friends to join your tribe</label>

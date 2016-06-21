@@ -5,8 +5,8 @@ angular.module('app')
    function($routeProvider) {
     $routeProvider.
       when( '/roles',  {
-        templateUrl: 'roles-info.html',
-        controller: 'role-ctrl.js'
+        templateUrl: '/views/roles-info.html',
+        controller: 'RoleCtrl'
       })
       .when('/my_roles',  {
         templateUrl: '/views/user-role.html',

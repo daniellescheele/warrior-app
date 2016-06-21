@@ -15,28 +15,29 @@ angular.module('app')
     };
 
     let currentUser = null;
+    let currentTribe = null;
 
 
-    firebase.auth().onAuthStateChanged((user) => {
-      console.log("auth state changed");
-      if (user) {
-        console.log("auth object here");
-        var users = null;
-        $http.get('https://warrior-app.firebaseio.com/tribes.json')
-          .then((res) => {
-            users = res.data;
-            return users;
-          })
-          .then((users) => {
-            for (var key in users) {
-              if (users[key].uid === users.uid) {
-                currentUser = users[key];
-                console.log("currentUser: ", currentUser);
-              }
-            }
-          })
-        }
-    })
+    // firebase.auth().onAuthStateChanged((user) => {
+    //   console.log("auth state changed");
+    //   if (user) {
+    //     console.log("auth object here");
+    //     var users = null;
+    //     $http.get('https://warrior-app.firebaseio.com/tribes.json')
+    //       .then((res) => {
+    //         users = res.data;
+    //         return users;
+    //       })
+    //       .then((users) => {
+    //         for (var key in users) {
+    //           if (users[key].uid === users.uid) {
+    //             currentUser = users[key];
+    //             console.log("currentUser: ", currentUser);
+    //           }
+    //         }
+    //       })
+    //     }
+    // })
 
     return {
 
@@ -64,6 +65,12 @@ angular.module('app')
         console.log(tribe)
 
         $http.post('https://warrior-app.firebaseio.com/tribes.json', tribe)
+        .then( function (data) {
+          currentTribe = data.data.name;
+          // console.log(currentTribe.data.name)
+        })
+
+
       },
 
       // *****************************************
@@ -73,7 +80,9 @@ angular.module('app')
       // }
       // *******************************************
 
-
+      getCurrentTribe: function(){
+        return currentTribe;
+      },
 
       getUser: function(param) {
         if (param) {
@@ -89,47 +98,3 @@ angular.module('app')
 
     }
   })
-
-    // return {
-  //     register(email, password) {
-  //       console.log(email, password)
-  //       firebase.auth().createUserWithEmailAndPassword(email, password).then((uid) => {
-  //         $http.post ("https://warrior-app.firebaseio.com/auth.json", uid);
-
-  //       }).catch(function(error) {
-  //       var errorCode = error.code;
-  //       var errorMessage = error.message;
-
-  //       });
-  //       return $timeout().then(() => (
-  //         users[email] === password
-  //           ? Promise.resolve(currentUser = email)
-  //           : Promise.reject('Authentication Failed')
-  //       ))
-  //     },
-  //     login(email, password) {
-  //       console.log(email, password)
-  //       firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-  //       var errorCode = error.code;
-  //       var errorMessage = error.message;
-
-  //       });
-  //       return $timeout().then(() => (
-  //         users[email] === password
-  //           ? Promise.resolve(currentUser = email)
-  //           : Promise.reject('Authentication Failed')
-  //       ))
-  //     },
-
-
-  //     logout () {
-  //       return $timeout().then(() => (
-  //         currentUser = null
-  //       ))
-  //     },
-
-  //     getUser () {
-  //       return currentUser
-  //     }
-  //   }
-  // })
