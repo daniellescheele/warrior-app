@@ -23,7 +23,7 @@ angular.module('app')
     //   if (user) {
     //     console.log("auth object here");
     //     var users = null;
-    //     $http.get('https://warrior-app.firebaseio.com/tribes.json')
+    //     $http.get('https://warrior-app.firebaseio.com/tribes/users.json')
     //       .then((res) => {
     //         users = res.data;
     //         return users;
@@ -72,6 +72,15 @@ angular.module('app')
 
 
       },
+
+      // checkEmailsForTribes(email) {
+      //   var alltribes = $http.get('http://warrior-app.firebaseio.com/tribes/email2/json')
+      //   var tribeMember = firebase.auth().currentUser.uid
+      //   console.log(tribeMember);
+      //   console.log(alltribes);
+      //   if firebase.auth().currentUser.uid === tribe.email1;
+      //   send to
+      // },
 
       // *****************************************
       // checkEmailsForTribes(email) {

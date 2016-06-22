@@ -40,6 +40,7 @@ angular.module('app')
 
         })
         .then(() => (AuthFactory.sendTribeInfo(tribeObj)))
+        // .then(() => (AuthFactory.checkEmailsForTribes(auth.email)))
         .then(() => (AuthFactory.login(auth.email, auth.password)))
         .then(() => {$location.path('/create_tribe')})
         .catch((error) => alert(error));
