@@ -1,4 +1,4 @@
-angular.module('app', ['ui.bootstrap', 'ngRoute'] )
+ angular.module('app', ['ui.bootstrap', 'ngRoute'] )
 
   .controller('MainCtrl', function ($uibModal) {
     const main = this
@@ -6,6 +6,9 @@ angular.module('app', ['ui.bootstrap', 'ngRoute'] )
     main.heading = 'Nominate a Warrior'
     let loginModal = null;
     let registerModal = null;
+
+
+
 
 		main.login = function() {
   	console.log("login running")

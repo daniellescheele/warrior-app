@@ -15,15 +15,14 @@ angular.module('app')
       var invites = {
         email2: tribe.invite1,
         email3: tribe.invite2,
-        email4: tribe.invite3,
-        email5: tribe.invite4,
-        email6: tribe.invite5
+        email4: tribe.invite3
+
       };
 
      TribeFactory.create(invites)
         .then(() => (TribeFactory.template(template)))
         .then(() => (TribeFactory.updateTribeInfo(invites, template)))
-        .then(() => {$location.path('/roles')})
+        .then(() => {$location.path('/my_roles')})
         .catch((error) => alert('error'));
     }
   })

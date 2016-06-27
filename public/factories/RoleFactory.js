@@ -25,6 +25,4 @@ angular.module('app')
       }
   })
 
-      // Object.assign(roleChosen, {roleChosen: userId})
-      // console.log(roleChosen);
-      // console.log(userId);
+

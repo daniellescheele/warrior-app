@@ -14,31 +14,36 @@ angular.module('app')
       var tribeObj;
       AuthFactory.register(auth.email, auth.password)
         // .then (()=> (AuthFactory.checkEmailsForTribes(auth.email)))
+        //   .then(() => {
+        //   firebase.database().ref('tribes').orderByChild('email1').equalTo(auth.email).once('value', (snapshot) => {
+        //     var foundEmail = snapshot.val()
+        //     if(foundEmail) {
+        //       for(var key in foundEmail) {
+        //         console.log(foundEmail)
+        //       }
+        //     }
+        //   })
+        // })
         .then (()=> {
           tribeObj = {
           tribes: auth.tribe,
-          arrows: "",
-          arrowsquote: "",
-          cloak: "",
-          cloakquote: "",
-          flower: "",
-          flowerquote: "",
           headdress: "",
           headdressquote: "",
-          mask: "",
-          maskquote: "",
+          headdressNum: 0,
+          arrows: "",
+          arrowsquote: "",
+          arrowsNum: 0,
+          cloak: "",
+          cloakquote: "",
+          cloakNum: 0,
           paperdoll: 0,
-          tattoos: "",
-          tattoosquote: "",
           email1: auth.email,
           email2: "",
-          email3: "",
-          email4: "",
-          email5: "",
-          email6: ""
-        }
+          email3: ""
+          }
 
         })
+
         .then(() => (AuthFactory.sendTribeInfo(tribeObj)))
         // .then(() => (AuthFactory.checkEmailsForTribes(auth.email)))
         .then(() => (AuthFactory.login(auth.email, auth.password)))

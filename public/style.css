@@ -1,5 +1,32 @@
+/*.warrior {
+	background: green;
+	height:300px;
+
+}*/
+.pink {
+	background: pink;
+	height:100px;
+
+}
+.blue {
+	background: blue;
+	height:100px;
+}
+.red {
+	background: red;
+	height:100px;
+}
+
+
+.template1 {
+
+
+}
+
+
 h1 {
 	color: teal;
+
 }
 
 .center-block {
@@ -7,3 +34,4 @@ h1 {
   margin-left: auto;
   margin-right: auto;
 }
+

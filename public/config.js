@@ -10,7 +10,8 @@ angular.module('app')
       })
       .when('/my_roles',  {
         templateUrl: '/views/user-role.html',
-        controller: 'RoleActionCtrl'
+        controller: 'WarriorCtrl',
+        controllerAs: 'warrior'
       })
       .when( '/warrior', {
         templateUrl: 'warrior.html',

@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('RoleCtrl', function (RoleFactory, AuthFactory) {
+  .controller('RoleCtrl', function (RoleFactory, $location, AuthFactory) {
 
    const role = this
    let roleChosen = null;
@@ -18,7 +18,7 @@ angular.module('app')
 
       .then(() => (tribeId = AuthFactory.getCurrentTribe()))
       .then(() => (RoleFactory.addRole(userId,roleChosen,tribeId)))
-      // .then(() => {$location.path})
+      .then(() => {$location.path('/my_roles')})
       .catch((error) => alert('error'));
   }
 

@@ -1,5 +1,51 @@
 
-<div class="container">
-	<button type="button" ng-model="auth.logout" class="btn btn-info">LogOut</button>
-<h1>hi</h1>
+<div class="container-fluid">
+	<div class="row col-xs-12">
+	<form class="form-horizontal" validate>
+ <form ng-click="warrior.change()" class="form-horizontal" validate>
+	<div class="row">
+		<div class="form-group col-xs-3">
+			<div class="template1 row">
+     		  <img  src="/roles/headdress.png">
+     		  <input type="radio" name="options" ng-model="warrior.image" value="headdress">
+    	</div>
+    </div>
+    	<div class="col-xs-9 warrior">
+    		<div class="row pink" ng-click="warrior.openHeaddress()">
+    		</div>
+    	</div>
+	</div>
+	<div class="row">
+			<div class="form-group col-xs-3">
+			<div class="template1 row">
+     		  <img ng-src="{{warrior.image}}">
+          <input type="radio" name="options" ng-model="warrior.image" value="arrows">
+    	</div>
+    </div>
+    	<div class="col-xs-9 warrior">
+    		<div class="row blue" ng-click="warrior.openArrows()">
+    		</div>
+    	</div>
+	</div>
+	<div class="row">
+			<div class="form-group col-xs-3">
+			<div class="template1 row">
+     		 	<img src="/roles/flowers.png">
+					<input type="radio" name="options"  ng-model="warrior.image" value="flowers">
+    	</div>
+    </div>
+    	<div class="col-xs-9 warrior">
+    		<div class="row red" ng-click="warrior.openFlowers()">
+    		</div>
+    	</div>
+	</div>
+</form>
 </div>
+</div>
+
+
+
+
+
+
+
