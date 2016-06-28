@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="form-group col-xs-3">
 			<div class="template1 row">
-     		  <img  src="/roles/headdress.png">
+     		  <button type="button" class="btn btn-default imgButton headdressbtn" data-container="body" data-toggle="popover" data-placement="right" data-content=""><img src='/roles/headdress1.png'></button>
      		  <input type="radio" name="options" ng-model="warrior.image" value="headdress">
     	</div>
     </div>
@@ -18,8 +18,10 @@
 	<div class="row">
 			<div class="form-group col-xs-3">
 			<div class="template1 row">
-     		  <img ng-src="{{warrior.image}}">
-          <input type="radio" name="options" ng-model="warrior.image" value="arrows">
+     		  <!-- <img ng-src="{{warrior.image}}"> -->
+          <button type="button" class="btn btn-default imgButton cloakbtn" data-container="body" data-toggle="popover" data-placement="right" data-content=""><img src='/roles/cloak1.png'></button>
+
+          <input type="radio" name="options" ng-model="warrior.image" value="cloak">
     	</div>
     </div>
     	<div class="col-xs-9 warrior">
@@ -30,8 +32,8 @@
 	<div class="row">
 			<div class="form-group col-xs-3">
 			<div class="template1 row">
-     		 	<img src="/roles/flowers.png">
-					<input type="radio" name="options"  ng-model="warrior.image" value="flowers">
+     		 	<button type="button" class="btn btn-default imgButton bootsbtn" data-container="body" data-toggle="popover" data-placement="right" data-content=""><img src='/roles/boots1.png'></button>
+					<input type="radio" name="options"  ng-model="warrior.image" value="boots">
     	</div>
     </div>
     	<div class="col-xs-9 warrior">

@@ -15,13 +15,23 @@ angular.module('app')
 		var storage = firebase.storage()
 		var storageRef = storage.ref();
 
+		$(document).ready(function(){
+			var text = "<div class='headdresses'><img src='/roles/headdress4.png'><img src='/roles/headdress2.png'><img src='/roles/headdress3.png'></div>"
+				$('[data-toggle="popover"]').popover({
+					html : true,
+					content: function() {
+					return text
+				}
+				});
+		});
+
 
 		// var paperdollFolder = storage.child('paperdoll')
 		// 	console.log(paperdollFolder);
 
 		// var paperdoll1 = 'template1.png';
 
-		storageRef.child('paperdoll/template1.png').getDownloadURL()
+		storageRef.child('paperdoll/PD1.png').getDownloadURL()
 			.then(function(url) {
 			warrior.image = url
 			console.log(url)
