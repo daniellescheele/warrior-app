@@ -14,10 +14,31 @@ angular.module('app')
           console.log("template added")
           ))
       },
+     defaultDoll(template) {
+        var obj = {}
+        var tribeId = AuthFactory.getCurrentTribe();
+        var storage = firebase.storage()
+        var storageRef = storage.ref();
+        storageRef.child("headdress/" + template + "HD0.png").getDownloadURL()
+        .then(function(url) {
+        obj.headdressDefault = url
+        $http.patch(`https://warrior-app.firebaseio.com/tribes/${tribeId}.json`, obj)
+        })
+        storageRef.child("cloak/CL1.png").getDownloadURL()
+        .then(function(url) {
+        obj.cloakDefault = url
+        $http.patch(`https://warrior-app.firebaseio.com/tribes/${tribeId}.json`, obj)
+        })
+        storageRef.child("boots/BT1.png").getDownloadURL()
+        .then(function(url) {
+        obj.bootsDefault = url
+        console.log("this is my obj", obj);
+        $http.patch(`https://warrior-app.firebaseio.com/tribes/${tribeId}.json`, obj)
+        })
+        },
 
-      // getTribe() {
-      //   // console.log(firebase.auth().currentUser.uid)
-      // }
+
+
       updateTribeInfo(emails, template) {
         var tribeId = AuthFactory.getCurrentTribe();
         console.log("i need the emails", emails);

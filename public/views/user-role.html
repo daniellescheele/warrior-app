@@ -1,17 +1,17 @@
 
 <div class="container-fluid">
 	<div class="row col-xs-12">
-	<form class="form-horizontal" validate>
  <form ng-click="warrior.change()" class="form-horizontal" validate>
 	<div class="row">
 		<div class="form-group col-xs-3">
 			<div class="template1 row">
      		  <button type="button" class="btn btn-default imgButton headdressbtn" data-container="body" data-toggle="popover" data-placement="right" data-content=""><img src='/roles/headdress1.png'></button>
-     		  <input type="radio" name="options" ng-model="warrior.image" value="headdress">
+     		  <!-- <input type="radio" name="options" ng-model="warrior.image" value="headdress"> -->
     	</div>
     </div>
     	<div class="col-xs-9 warrior">
     		<div class="row pink" ng-click="warrior.openHeaddress()">
+        <img ng-src="{{warrior.headdress}}">
     		</div>
     	</div>
 	</div>
@@ -19,9 +19,9 @@
 			<div class="form-group col-xs-3">
 			<div class="template1 row">
      		  <!-- <img ng-src="{{warrior.image}}"> -->
-          <button type="button" class="btn btn-default imgButton cloakbtn" data-container="body" data-toggle="popover" data-placement="right" data-content=""><img src='/roles/cloak1.png'></button>
+          <button type="button" class="btn btn-default imgButton cloakbtn" data-container="body" data-toggle="popover2" data-placement="right" data-content=""><img src='/roles/cloak1.png'></button>
 
-          <input type="radio" name="options" ng-model="warrior.image" value="cloak">
+         <!--  <input type="radio" name="options" ng-model="warrior.image" value="cloak"> -->
     	</div>
     </div>
     	<div class="col-xs-9 warrior">
@@ -32,8 +32,8 @@
 	<div class="row">
 			<div class="form-group col-xs-3">
 			<div class="template1 row">
-     		 	<button type="button" class="btn btn-default imgButton bootsbtn" data-container="body" data-toggle="popover" data-placement="right" data-content=""><img src='/roles/boots1.png'></button>
-					<input type="radio" name="options"  ng-model="warrior.image" value="boots">
+     		 	<button type="button" class="btn btn-default imgButton bootsbtn" data-container="body" data-toggle="popover3" data-placement="right" data-content=""><img src='/roles/boots1.png'></button>
+					<!-- <input type="radio" name="options"  ng-model="warrior.image" value="boots"> -->
     	</div>
     </div>
     	<div class="col-xs-9 warrior">

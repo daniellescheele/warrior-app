@@ -24,8 +24,16 @@
 	height:100px;
 }*/
 .modal-content {
-	background-color: teal;
-	color:white;
+	background-color: #F27168;
+	color: #B31064;
+}
+.modal-title {
+	color:#CCC60E;
+	padding-left: 10px;
+}
+.form-control {
+	background-color:#86EBDA;
+
 }
 
 .template1 {
