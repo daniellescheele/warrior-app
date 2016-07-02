@@ -1,6 +1,9 @@
 angular.module('app')
 
-  .factory('TribeFactory', function($timeout, $http, AuthFactory){
+  .factory('TribeFactory', function($timeout, $http, AuthFactory ){
+
+     var obj = {};
+     var doll;
 
     return {
       create(emails)  {
@@ -15,27 +18,43 @@ angular.module('app')
           ))
       },
      defaultDoll(template) {
-        var obj = {}
+
         var tribeId = AuthFactory.getCurrentTribe();
         var storage = firebase.storage()
         var storageRef = storage.ref();
-        storageRef.child("headdress/" + template + "HD0.png").getDownloadURL()
+        storageRef.child(`headdress/${template}HD0.png`).getDownloadURL()
         .then(function(url) {
         obj.headdressDefault = url
         $http.patch(`https://warrior-app.firebaseio.com/tribes/${tribeId}.json`, obj)
         })
-        storageRef.child("cloak/CL1.png").getDownloadURL()
+        storageRef.child(`cloak/CL1.png`).getDownloadURL()
         .then(function(url) {
         obj.cloakDefault = url
         $http.patch(`https://warrior-app.firebaseio.com/tribes/${tribeId}.json`, obj)
         })
-        storageRef.child("boots/BT1.png").getDownloadURL()
+        storageRef.child(`boots/BT1.png`).getDownloadURL()
         .then(function(url) {
         obj.bootsDefault = url
-        console.log("this is my obj", obj);
+        doll = obj;
+        console.log("this is my mf-ing doll", doll);
         $http.patch(`https://warrior-app.firebaseio.com/tribes/${tribeId}.json`, obj)
+
+
+
         })
         },
+
+
+        getDoll ()  {
+        var tribeId = AuthFactory.getCurrentTribe();
+        return $timeout(function() {
+          return $http.get(`https://warrior-app.firebaseio.com/tribes/${tribeId}.json`)
+            .then((res)=> {dollData = res.data;
+              return dollData;});
+        }, 0);
+      },
+
+
 
 
 

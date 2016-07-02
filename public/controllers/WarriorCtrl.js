@@ -1,17 +1,30 @@
 
 angular.module('app')
-  .controller('WarriorCtrl', function (TribeFactory,$timeout,$scope) {
+  .controller('WarriorCtrl', function (TribeFactory, $timeout,$scope) {
 
  const warrior = this
  var storage = firebase.storage()
  var storageRef = storage.ref();
+ var doll;
+ // var paperdoll;
+ // var headdress;
+ // var cloak;
+ // var boots;
 
 const myUserEmail = firebase.auth().currentUser.email;
 const topUserPostsRef = firebase.database().ref('tribes').orderByChild('email1').equalTo(myUserEmail).on('value', function(snapshot){
 const data = (snapshot.val())
 	console.log(data)
 	for(key in data) {
-		console.log(data[key].paperdoll)
+		warrior.paperdoll = data[key].paperdoll
+		warrior.headdress = data[key].headdressDefault
+		warrior.cloak = data[key].cloakDefault
+		warrior.boots = data[key].bootsDefault
+
+		console.log(warrior.paperdoll)
+		console.log(warrior.headdress)
+		console.log(warrior.cloak)
+		console.log(warrior.boots)
 	}
 });
 
@@ -69,7 +82,17 @@ const data = (snapshot.val())
 				$('body').on("click", "#boot3", function(e){
 					console.log("clicked", e)
 				})
+
+
 		})
+
+		$timeout(function() {doll = TribeFactory.getDoll();
+			console.log("dollgetter",doll)
+
+
+
+			;}, 1000)
+
 
 
 
@@ -82,13 +105,13 @@ const data = (snapshot.val())
 
 
 
-		storageRef.child('paperdoll/PD1.png').getDownloadURL()
-			.then(function(url) {
-			warrior.image = url
-			console.log(url)
-			$scope.$apply()
+		// storageRef.child('paperdoll/PD1.png').getDownloadURL()
+		// 	.then(function(url) {
+		// 	warrior.image = url
+		// 	console.log(url)
+		// 	$scope.$apply()
 
-			})
+		// 	})
 
 		// var root = paperdoll1ref.bucket
 		// var path = paperdoll1ref.fullPath

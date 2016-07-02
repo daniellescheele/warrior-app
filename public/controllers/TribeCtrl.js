@@ -1,8 +1,9 @@
 angular.module('app')
-  .controller('TribeCtrl', function (TribeFactory, $location) {
+  .controller('TribeCtrl', function (TribeFactory, $location, $timeout) {
    const tribe = this
    let template = null;
    let defaultDoll = {}
+   let doll;
 
 
     tribe.template = function () {
@@ -22,26 +23,23 @@ angular.module('app')
 
       }
 
-      tribe.defaultDoll = function (template) {
-        console.log("HEY",template)
-        var storage = firebase.storage()
-        var storageRef = storage.ref();
-        storageRef.child('template').getDownloadURL()
-        then(function(url){
-
-        })
-
-      },
-
-
 
      TribeFactory.create(invites)
         .then(() => (TribeFactory.template(template)))
         .then(() => (TribeFactory.updateTribeInfo(invites, template)))
         .then(() => (TribeFactory.defaultDoll(template)))
         .then(() => {$location.path('/my_roles')})
-        .catch((error) => alert('error'));
+        // .then($timeout(function() {doll = TribeFactory.getDoll();}, 1000))
+        .catch((error) => alert('error'))
+        // .then($timeout(() => (console.log("doll value", doll))), 1200);
     }
+
+    // return {
+    //   getDomDoll(){
+    //     return doll;
+    //   }
+    // }
+
   })
 
 // build up an email  object and call it
