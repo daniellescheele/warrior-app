@@ -3,8 +3,16 @@
 angular.module('app')
   .config(['$routeProvider',
    function($routeProvider) {
-    $routeProvider.
-      when( '/roles',  {
+    $routeProvider
+      // .when('/', {
+      //   templateUrl: 'index.html'
+      // })
+      .when('/login', {
+        templateUrl: '/views/loginView.html',
+        controller: 'MainCtrl',
+        controllerAs: 'main'
+      })
+      .when( '/roles',  {
         templateUrl: '/views/roles-info.html',
         controller: 'RoleCtrl'
       })
@@ -21,5 +29,7 @@ angular.module('app')
         templateUrl: '/views/createTribe.html',
         controller: 'TribeCtrl'
       })
+      .otherwise('/login')
+
     }
 ]);

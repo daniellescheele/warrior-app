@@ -1,5 +1,15 @@
-.wrapper {
-	margin:30px 100px;
+
+
+#loginView {
+/*	margin:30px 100px;*/
+
+	background-image: url("roles/warriorback1.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	max-width:100%;
+	height:800px;
+
 
 }
 .headdresses {
@@ -24,7 +34,7 @@
 	height:100px;
 }*/
 .modal-content {
-	background-color: #F27168;
+	background-color:
 	color: #B31064;
 }
 .modal-title {
@@ -55,22 +65,28 @@ h1 {
   margin-left: auto;
   margin-right: auto;
 }
-
-
+.loginBtn{
+	margin-left: 20px;
+}
+.registerBtn{
+	padding-right: 10px;
+}
 .btn-primary{
-	background-color: #7E0339;
+	background-color: #86EBDA;
+	border-style: none;
 	color:white;
+	padding-left: 50px;
 }
 .btn-group-lg>.btn, .btn-lg{
-	padding: 10px;
+	/*padding: 10px;*/
 	font-size: 14px;
-	border-radius: none;
-	margin-left:5px;
+
+
 }
 
-.imgButton {
+/*.imgButton {
 	padding: none;
 
-}
+}*/
 
 

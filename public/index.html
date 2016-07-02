@@ -8,25 +8,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-  <body ng-app="app">
+  <body>
+  <div ng-app="app">
 
 
 
-     <div class="wrapper" ng-controller="MainCtrl as main">
-      <!-- <h1>{{main.heading}}</h1> -->
-      <div class="heading"><img src="roles/Beawarrior.png"></div>
-      <div>
-        <button type="button" class="btn btn-primary btn-lg" ng-click="main.login()">Login</button>
-        <button type="button" class="btn btn-primary btn-lg" ng-click="main.register()">Register</button>
-     </div>
-     </div>
+
 
      <div ng-view></div>
+  </div>
 
-    <!-- <div ng-controller="LoginCtrl as login"> -->
-    <!-- </div> -->
 
-    <!-- <div ng-include="views/login-modal/loginmodal.html"></div> -->
 
     <script src="lib/angular/angular.min.js"></script>
     <script src="lib/angular-route/angular-route.min.js"></script>

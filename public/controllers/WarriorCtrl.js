@@ -1,15 +1,15 @@
 
 angular.module('app')
-  .controller('WarriorCtrl', function (TribeFactory, $timeout,$scope) {
+  .controller('WarriorCtrl', function (TribeFactory, $timeout,$http, $scope) {
 
  const warrior = this
  var storage = firebase.storage()
  var storageRef = storage.ref();
  var doll;
- // var paperdoll;
- // var headdress;
- // var cloak;
- // var boots;
+ warrior.paperdoll;
+ warrior.headdress;
+ warrior.cloak;
+ warrior.boots;
 
 const myUserEmail = firebase.auth().currentUser.email;
 const topUserPostsRef = firebase.database().ref('tribes').orderByChild('email1').equalTo(myUserEmail).on('value', function(snapshot){
@@ -27,7 +27,10 @@ const data = (snapshot.val())
 		console.log(warrior.boots)
 	}
 });
-
+	function updateDollHeaddress(myHeaddress) {
+		warrior.headdress = myHeaddress;
+	}
+	// when i click the change it knows to change the headdress but doesnt display it
 
 
 		$(document).ready(function(){
@@ -53,7 +56,9 @@ const data = (snapshot.val())
 				}
 				})
 				$('body').on("click", "#hdpink", function(e){
-					console.log("clicked", e)
+					var newHeaddress = `https://firebasestorage.googleapis.com/v0/b/warrior-app.appspot.com/o/headdress%2F${warrior.paperdoll}HD2.png?alt=media&token=740ebeaf-aa9a-4aee-828e-7510bee7dda8`
+					console.log("clicked", newHeaddress)
+					updateDollHeaddress(newHeaddress)
 				})
 				$('body').on("click", "#hdflow", function(e){
 					console.log("clicked", e)
@@ -94,37 +99,9 @@ const data = (snapshot.val())
 			;}, 1000)
 
 
-
-
-
-
-		// var paperdollFolder = storage.child('paperdoll')
-		// 	console.log(paperdollFolder);
-
-		// var paperdoll1 = 'template1.png';
-
-
-
-		// storageRef.child('paperdoll/PD1.png').getDownloadURL()
-		// 	.then(function(url) {
-		// 	warrior.image = url
-		// 	console.log(url)
-		// 	$scope.$apply()
-
-		// 	})
-
-		// var root = paperdoll1ref.bucket
-		// var path = paperdoll1ref.fullPath
-		// warrior.image = root + '/' + path
-		// console.log(path);
-
-
-
-
-
  warrior.openHeaddress = function () {
  	console.log("headdress clicked")
- 	console.log(imagesRef)
+
  }
 
  warrior.openArrows = function () {
@@ -139,29 +116,3 @@ const data = (snapshot.val())
 
 
 
-
-
-
-
-//    const role = this
-//    let roleChosen = null;
-//    let userId = firebase.auth().currentUser.uid;
-
-
-//     role.choose = function () {
-//       var tribeId;
-//       console.log("role chosen", role.img)
-//       roleChosen = role.img;
-//       console.log(userId, roleChosen);
-
-
-
-//     RoleFactory.choose(roleChosen)
-
-//       .then(() => (tribeId = AuthFactory.getCurrentTribe()))
-//       .then(() => (RoleFactory.addRole(userId,roleChosen,tribeId)))
-//       .then(() => {$location.path('/my_roles')})
-//       .catch((error) => alert('error'));
-//   }
-
-// })
