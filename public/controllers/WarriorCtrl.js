@@ -10,6 +10,7 @@ angular.module('app')
  warrior.headdress;
  warrior.cloak;
  warrior.boots;
+ warrior.quote;
 
 const myUserEmail = firebase.auth().currentUser.email;
 const topUserPostsRef = firebase.database().ref('tribes').orderByChild('email1').equalTo(myUserEmail).on('value', function(snapshot){
@@ -21,6 +22,7 @@ const data = (snapshot.val())
 		warrior.cloak = data[key].cloakDefault
 		warrior.boots = data[key].bootsDefault
 
+
 		console.log(warrior.paperdoll)
 		console.log(warrior.headdress)
 		console.log(warrior.cloak)
@@ -30,10 +32,14 @@ const data = (snapshot.val())
 	function updateDollHeaddress(myHeaddress) {
 		warrior.headdress = myHeaddress;
 	}
-	// when i click the change it knows to change the headdress but doesnt display it
+	function updateDollCloak(mycloak){
+		warrior.cloak = mycloak;
+	}
+	function updateDollBoots(myboots){
+		warrior.boots = myboots;
+	}
 
-
-		$(document).ready(function(){
+	$(document).ready(function(){
 			var text = "<div class='headdresses'><img id='hdpink' src='/roles/headdress4.png'><img id='hdflow'src='/roles/headdress2.png'><img id='hdfeathers'src='/roles/headdress3.png'><img id='hdpurple'src='/roles/headdress1.png'></div>"
 			var text2 = "<div class='cloaks'><img id='cloak1' src='/roles/cloak1.png'><img id='cloak2' src='/roles/cloak2.png'><img id='cloak3' src='/roles/cloak3.png'></div>"
 			var text3 = "<div class='boots'><img id='boot1' src='/roles/boots1.png'><img id='boot2' src='/roles/boots2sm.png'><img id='boot3' src='/roles/boots3sm.png'></div>"
@@ -61,31 +67,49 @@ const data = (snapshot.val())
 					updateDollHeaddress(newHeaddress)
 				})
 				$('body').on("click", "#hdflow", function(e){
+					var newHeaddress = `https://firebasestorage.googleapis.com/v0/b/warrior-app.appspot.com/o/headdress%2F${warrior.paperdoll}HD3.png?alt=media&token=740ebeaf-aa9a-4aee-828e-7510bee7dda8`
 					console.log("clicked", e)
+					updateDollHeaddress(newHeaddress)
 				})
 				$('body').on("click", "#hdfeathers", function(e){
+					var newHeaddress = `https://firebasestorage.googleapis.com/v0/b/warrior-app.appspot.com/o/headdress%2F${warrior.paperdoll}HD4.png?alt=media&token=740ebeaf-aa9a-4aee-828e-7510bee7dda8`
 					console.log("clicked", e)
+					updateDollHeaddress(newHeaddress)
 				})
 				$('body').on("click", "#hdpurple", function(e){
+					var newHeaddress = `https://firebasestorage.googleapis.com/v0/b/warrior-app.appspot.com/o/headdress%2F${warrior.paperdoll}HD1.png?alt=media&token=740ebeaf-aa9a-4aee-828e-7510bee7dda8`
 					console.log("clicked", e)
+					updateDollHeaddress(newHeaddress)
 				})
 				$('body').on("click", "#cloak1", function(e){
+					var newcloak = `https://firebasestorage.googleapis.com/v0/b/warrior-app.appspot.com/o/cloak%2FCL2.png?alt=media&token=f714e989-6b16-4c80-976e-5f02a8584a6f`
 					console.log("clicked", e)
+					updateDollCloak(newcloak)
 				})
 				$('body').on("click", "#cloak2", function(e){
+					var newcloak = `https://firebasestorage.googleapis.com/v0/b/warrior-app.appspot.com/o/cloak%2FCL1.png?alt=media&token=f714e989-6b16-4c80-976e-5f02a8584a6f`
 					console.log("clicked", e)
+					updateDollCloak(newcloak)
 				})
 				$('body').on("click", "#cloak3", function(e){
+					var newcloak = `https://firebasestorage.googleapis.com/v0/b/warrior-app.appspot.com/o/cloak%2FCL3.png?alt=media&token=f714e989-6b16-4c80-976e-5f02a8584a6f`
 					console.log("clicked", e)
+					updateDollCloak(newcloak)
 				})
 				$('body').on("click", "#boot1", function(e){
+					var newboots = `https://firebasestorage.googleapis.com/v0/b/warrior-app.appspot.com/o/boots%2FBT1.png?alt=media&token=f714e989-6b16-4c80-976e-5f02a8584a6f`
 					console.log("clicked", e)
+					updateDollBoots(newboots)
 				})
 				$('body').on("click", "#boot2", function(e){
+					var newboots = `https://firebasestorage.googleapis.com/v0/b/warrior-app.appspot.com/o/boots%2FBT2.png?alt=media&token=f714e989-6b16-4c80-976e-5f02a8584a6f`
 					console.log("clicked", e)
+					updateDollBoots(newboots)
 				})
 				$('body').on("click", "#boot3", function(e){
+					var newboots = `https://firebasestorage.googleapis.com/v0/b/warrior-app.appspot.com/o/boots%2FBT3.png?alt=media&token=f714e989-6b16-4c80-976e-5f02a8584a6f`
 					console.log("clicked", e)
+					updateDollBoots(newboots)
 				})
 
 
@@ -93,10 +117,23 @@ const data = (snapshot.val())
 
 		$timeout(function() {doll = TribeFactory.getDoll();
 			console.log("dollgetter",doll)
+		;}, 1000)
 
 
 
-			;}, 1000)
+	warrior.getQuote = function () {
+     $http.get("https://api.forismatic.com/api/1.0/?method=getQuote&format=html&lang=en")
+       .then (response => {
+       		 	response.addHeader(HttpHeaders.Names.ACCESS_CONTROL_REQUEST_HEADERS, "X-Key");
+						response.addHeader(HttpHeaders.Names.ACCESS_CONTROL_REQUEST_HEADERS, "X-Signature");
+						response.addHeader(HttpHeaders.Names.ACCESS_CONTROL_REQUEST_HEADERS, "Content-Type");
+            warrior.quote = response
+            console.log("please show a quote", warrior.quote);
+            return warrior.quote;
+          });
+    }
+
+
 
 
  warrior.openHeaddress = function () {
@@ -111,8 +148,11 @@ const data = (snapshot.val())
  warrior.openFlowers = function () {
  	console.log("openflowers")
  }
-
 })
+
+
+
+
 
 
 
