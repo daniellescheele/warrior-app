@@ -40,8 +40,8 @@ const data = (snapshot.val())
 	}
 
 	$(document).ready(function(){
-			var text = "<div class='headdresses'><img id='hdpink' src='/roles/headdress4.png'><img id='hdflow'src='/roles/headdress2.png'><img id='hdfeathers'src='/roles/headdress3.png'><img id='hdpurple'src='/roles/headdress1.png'></div>"
-			var text2 = "<div class='cloaks'><img id='cloak1' src='/roles/cloak1.png'><img id='cloak2' src='/roles/cloak2.png'><img id='cloak3' src='/roles/cloak3.png'></div>"
+			var text = "<div class='headdresses'><img id='hdpink' src='/roles/headdress4.png'><img id='hdflow'src='/roles/headdress2.png'><img id='hdfeathers'src='/roles/headdress3.png'><img id='hdblue'src='/roles/hd4.png'></div>"
+			var text2 = "<div class='cloaks'><img id='cloak1' src='/roles/cloakblue.png'><img id='cloak2' src='/roles/cloak2.png'><img id='cloak3' src='/roles/cloak3.png'><img id='cloak4' src='/roles/cloak4.png'></div>"
 			var text3 = "<div class='boots'><img id='boot1' src='/roles/boots1.png'><img id='boot2' src='/roles/boots2sm.png'><img id='boot3' src='/roles/boots3sm.png'></div>"
 				$('[data-toggle="popover"]').popover({
 					html : true,
@@ -66,6 +66,11 @@ const data = (snapshot.val())
 					console.log("clicked", newHeaddress)
 					updateDollHeaddress(newHeaddress)
 				})
+				$('body').on("click", "#hdblue", function(e){
+					var newHeaddress = `https://firebasestorage.googleapis.com/v0/b/warrior-app.appspot.com/o/headdress%2F${warrior.paperdoll}HD5.png?alt=media&token=740ebeaf-aa9a-4aee-828e-7510bee7dda8`
+					console.log("clicked", newHeaddress)
+					updateDollHeaddress(newHeaddress)
+				})
 				$('body').on("click", "#hdflow", function(e){
 					var newHeaddress = `https://firebasestorage.googleapis.com/v0/b/warrior-app.appspot.com/o/headdress%2F${warrior.paperdoll}HD3.png?alt=media&token=740ebeaf-aa9a-4aee-828e-7510bee7dda8`
 					console.log("clicked", e)
@@ -77,7 +82,7 @@ const data = (snapshot.val())
 					updateDollHeaddress(newHeaddress)
 				})
 				$('body').on("click", "#hdpurple", function(e){
-					var newHeaddress = `https://firebasestorage.googleapis.com/v0/b/warrior-app.appspot.com/o/headdress%2F${warrior.paperdoll}HD1.png?alt=media&token=740ebeaf-aa9a-4aee-828e-7510bee7dda8`
+					var newHeaddress = `https://firebasestorage.googleapis.com/v0/b/warrior-app.appspot.com/o/headdress%2F${warrior.paperdoll}HD1.png?alt=media&token=47c160e5-987e-4bfb-ab07-d73ebfa8164b`
 					console.log("clicked", e)
 					updateDollHeaddress(newHeaddress)
 				})
@@ -93,6 +98,11 @@ const data = (snapshot.val())
 				})
 				$('body').on("click", "#cloak3", function(e){
 					var newcloak = `https://firebasestorage.googleapis.com/v0/b/warrior-app.appspot.com/o/cloak%2FCL3.png?alt=media&token=f714e989-6b16-4c80-976e-5f02a8584a6f`
+					console.log("clicked", e)
+					updateDollCloak(newcloak)
+				})
+					$('body').on("click", "#cloak4", function(e){
+					var newcloak = `https://firebasestorage.googleapis.com/v0/b/warrior-app.appspot.com/o/cloak%2FCL4.png?alt=media&token=f714e989-6b16-4c80-976e-5f02a8584a6f`
 					console.log("clicked", e)
 					updateDollCloak(newcloak)
 				})

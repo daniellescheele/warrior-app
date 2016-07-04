@@ -1,41 +1,42 @@
 
+<div class="wrapper1">
 <div class="container-fluid">
-	<div class="row col-xs-12">
+	<div class="row col-xs-12 fill">
   <form ng-click="warrior.change()" class="form-horizontal" validate>
 	 <div class="row">
-		<div class="form-group col-xs-3">
+		<div class="form-group col-xs-3 fillit">
 			<div class="template1 row">
      		  <button type="button" class="btn btn-default imgButton headdressbtn" data-container="body" data-toggle="popover" data-placement="right" data-content=""><img src='/roles/headdress1.png'></button>
      		  <!-- <input type="radio" name="options" ng-model="warrior.image" value="headdress"> -->
     	</div>
       </div>
-    	<div class="col-xs-9 warrior">
+    	<div class="col-xs-9 warrior fillit">
     		<div class="row pink" >
-        <img ng-src="{{warrior.headdress}}">
+        <div><img ng-src="{{warrior.headdress}}"></div>
     		</div>
     	</div>
 	 </div>
 	   <div class="row">
-			<div class="form-group col-xs-3">
+			<div class="form-group col-xs-3 fillit">
 			 <div class="template1 row">
      		  <button type="button" class="btn btn-default imgButton cloakbtn" data-container="body" data-toggle="popover2" data-placement="right" data-content=""><img src='/roles/cloak1.png'></button>
       </div>
     </div>
-    	<div class="col-xs-9 warrior">
-    		<div class="row blue">
-        <img ng-src="{{warrior.cloak}}">
+    	<div class="col-xs-9 warrior fillit">
+    		<div class="row blue imageCloak">
+        <div><img ng-src="{{warrior.cloak}}"></div>
     		</div>
     	</div>
 	   </div>
 	   <div class="row">
-			<div class="form-group col-xs-3">
+			<div class="form-group col-xs-3 fillit">
 			<div class="template1 row">
      		 	<button type="button" class="btn btn-default imgButton bootsbtn" data-container="body" data-toggle="popover3" data-placement="right" data-content=""><img src='/roles/boots1.png'></button>
       </div>
      </div>
-    	<div class="col-xs-9 warrior">
+    	<div class="col-xs-9 warrior fillit">
     		<div class="row red">
-          <img ng-src="{{warrior.boots}}">
+          <div><img ng-src="{{warrior.boots}}"></div>
     		</div>
 
          <!--  <button type="button" class="btn btn-default" ng-click="warrior.getQuote()"> Be A Warrior</button>
@@ -43,6 +44,7 @@
       </div>
     </div>
   </form>
+  </div>
   </div>
 </div>
 
