@@ -10,6 +10,7 @@
 
 
 
+
 		main.login = function() {
   	console.log("login running")
   		loginModal = $uibModal.open({
@@ -28,5 +29,8 @@
         })
 
  			}
+      $(document).ready(function(){
+    $('body').scrollspy({target: ".navbar", offset: 50});
+});
  		})
 

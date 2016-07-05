@@ -43,20 +43,25 @@ const data = (snapshot.val())
 			var text = "<div class='headdresses'><img id='hdpink' src='/roles/headdress4.png'><img id='hdflow'src='/roles/headdress2.png'><img id='hdfeathers'src='/roles/headdress3.png'><img id='hdblue'src='/roles/hd4.png'></div>"
 			var text2 = "<div class='cloaks'><img id='cloak1' src='/roles/cloakblue.png'><img id='cloak2' src='/roles/cloak2.png'><img id='cloak3' src='/roles/cloak3.png'><img id='cloak4' src='/roles/cloak4.png'></div>"
 			var text3 = "<div class='boots'><img id='boot1' src='/roles/boots1.png'><img id='boot2' src='/roles/boots2sm.png'><img id='boot3' src='/roles/boots3sm.png'></div>"
+
 				$('[data-toggle="popover"]').popover({
 					html : true,
+					animation: true,
+
 					content: function() {
 					return text
 				}
 				})
 				$('[data-toggle="popover2"]').popover({
 					html : true,
+					animation: true,
 					content: function() {
 					return text2
 				}
 				})
 				$('[data-toggle="popover3"]').popover({
 					html : true,
+					animation:true,
 					content: function() {
 					return text3
 				}
@@ -158,7 +163,9 @@ const data = (snapshot.val())
  warrior.openFlowers = function () {
  	console.log("openflowers")
  }
+
 })
+
 
 
 

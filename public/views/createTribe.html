@@ -1,5 +1,6 @@
-<div class="container-fluid" ng-controller="TribeCtrl as tribe">
-    <div class="row">
+<div class="container-fluid tribe" ng-controller="TribeCtrl as tribe">
+<div class="image">
+    <div class="row createTribeView">
 	<!-- <h1>Create Your Tribe</h1> -->
     </div>
 	<form ng-click="tribe.template()" class="form-horizontal" validate>
@@ -9,15 +10,15 @@
     	</div>
     	<div class="row">
         <div>
-     		  <div class="col-sm-4" class="template">
+     		  <div class="col-sm-4" class="template popover">
      		  	<img  src="roles/PD1.png" alt="..." class="img-rounded" class="center-block">
      		  	<input type="radio" name="options" class="center-block" ng-model="tribe.imgtemplate" value="PD1">
     	 	 </div>
-					<div class="col-sm-4" class="template">
+					<div class="col-sm-4" class="template popover">
             <img src="roles/PD2.png" alt="..." class="img-rounded" class="center-block">
             <input type="radio" name="options" class="center-block" ng-model="tribe.imgtemplate" value="PD2">
         	</div>
-        	<div class="col-sm-4" class="template">
+        	<div class="col-sm-4" class="template popover">
 						<img src="roles/PD3.png" alt="..." class="img-rounded" class="center-block">
 						<input type="radio" name="options" class="center-block" ng-model="tribe.imgtemplate" value="PD3">
         	</div>
@@ -26,7 +27,10 @@
     </div>
     </form>
     <form ng-submit="tribe.create()" class="form-horizontal" validate>
-  	<div class="form-group" class="row">
+
+       <!--  <input type="submit" value="Submit"> -->
+       <button type="submit" class="btn btn-primary btn-lg submitBtn" value="submit" ng-click="tribe.create()">Choose</button>
+    <div class="form-group" class="row">
   		<div class="row">
   		<label for="invite" class="col-xs-6 control-label"></label>
      	</div>
@@ -49,6 +53,7 @@
 
 		</div>
 
-        <input type="submit" value="Submit">
+       <!--  <input type="submit" value="Submit"> -->
 	</form>
+</div>
 </div>

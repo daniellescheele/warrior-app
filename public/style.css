@@ -1,27 +1,60 @@
-.wrapper1{
 
-	margin: 7%;
+.nav {
+position: fixed;
+}
 
+/*#bigDiv {
+	text-align: center;
+	padding:25px;
+
+/*}*/
+#clothes {
+	margin-left: 25px;
+	margin-right: 25px;
+	padding-left: 8%;
+	padding-top: 3%;
+	padding-right:4%;
 }
 
 .container-fluid{
-	width: auto;
-	margin:0;
-	height:auto;
+	margin: 0px;
+	padding:0px;
+	width:100%;
+}
+/*.wrapper1{
+	position:relative;
+	z-index: -2;
+	background-image: url(roles/clothes1.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height:700px;
+	margin:0px;
+	padding:0px;
+	width:100%;
+}*/
 
+form {
+	padding: 5%;
+}
+.image {
+	background-image:url(roles/border.png);
+
+	height:100px;
+	margin:0px;
+	padding:0px;
+	width:100%;
 }
 
-
-
-
 #loginView {
-	background-image: url(roles/warrior-background.jpg);
+	background-image: url(roles/background7.png);
 	background-repeat: no-repeat;
+	background-position: center;
 	background-size: cover;
-	height:800px;
-	margin: auto;
-
-
+	height:1900px;
+	margin:0px;
+	padding:0px;
+	width:100%;
 }
 .headdresses {
 	text-align: center;
@@ -32,10 +65,12 @@
 .boots {
 	text-align: center;
 }
-/*.container-fluid {
-	margin:10px 100px;
-*/
+.img-rounded {
+	padding-top:25%;
+	padding-left: 20%;
+	padding-right: 20%;
 }
+
 .imgButton {
 	margin: auto;
 }
@@ -78,7 +113,7 @@
 }
 
 
-}
+
 .modal-content {
 	background-color:
 	color: #B31064;
@@ -91,6 +126,8 @@
 	background-color:#86EBDA;
 
 }
+
+
 
 .template1 {
 
@@ -105,25 +142,50 @@ h1 {
 	color: gray;
 
 }
+input[type=radio] {
+	background-color: #86EBDA;
+}
 
 .center-block {
-  display: block;
+	display: block;
   margin-left: auto;
   margin-right: auto;
 }
 .loginBtn{
 	margin-left: 20px;
+	margin-top:20px;
+	background-color: #040858;
 }
 .registerBtn{
 	padding-right: 10px;
+	margin-top:20px;
+	color: #040858;
+}
+.submitBtn {
+	padding-right: 10px;
+	margin-top:20px;
+	color: #040858;
+
+
 }
 .btn-primary{
-	background-color: #86EBDA;
-	border-style: none;
+	background-color:#040858;
+	border-style: solid;
+	border-color:white;
+	border-width: medium;
 	color:white;
 	padding-left: 50px;
+	padding-right: 50px;
+	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
-.btn-group-lg>.btn, .btn-lg{
+.btn-primary:hover {
+	background-color:#EC3E90;
+	border-color:white;
+	border-width:medium;
+
+
+	}
+.btn-group-lg.btn, .btn-lg{
 	/*padding: 10px;*/
 	font-size: 14px;
 
@@ -140,7 +202,7 @@ h1 {
 #arrowContainer {
 	width: 80%;
 	height: 100px;
-	background-image: url("roles/arrows.png");
+	background-image: url("roles/arrows2.png");
 	animation: play 1.50s steps(3) infinite;
 }
 @keyframes play {
@@ -148,12 +210,13 @@ h1 {
      to { background-position: 1500px; }
 }
 .swingimage{
+		display: inline;
 		margin-left:80%;
-		margin-top:17%;
+
 		webkit-transform-origin: 50% 0;
     transform-origin: 50% 0;
     -webkit-animation: swinging 1.5s ease-in-out forwards infinite;
-    animation: swinging 1.5s ease-in-out forwards infinite;
+    animation: swinging 1.0s ease-in-out forwards infinite;
 }
 
 
@@ -162,5 +225,27 @@ h1 {
     0%{transform: rotate(10deg);}
     50%{transform: rotate(-5deg)}
     100%{transform: rotate(10deg);}
+  }
+
+
+.#birds {
+
+	bottom: 20%;
+	width:400px;
+}
+
+#birdsContainer {
+	margin-top: 550px;
+	margin-left: 37%;
+
+	width: 400px;
+	height: 100px;
+	background-image: url("roles/birds1.png");
+	animation: birds 2.00s steps(2) infinite;
+}
+
+@keyframes birds {
+		from { background-position: 0px; }
+     to { background-position: -800px; }
 }
 
