@@ -244,17 +244,17 @@ input[type=radio] {
 
 #birdsContainer {
 	margin-top: 550px;
-	margin-left: 37%;
+	margin-left: 26%;
 
-	width: 400px;
-	height: 100px;
-	background-image: url("roles/birds1.png");
+	width: 700px;
+	height: 200px;
+	background-image: url("roles/birds5.png");
 	animation: birds 2.00s steps(2) infinite;
 }
 
 @keyframes birds {
 		from { background-position: 0px; }
-     to { background-position: -800px; }
+     to { background-position: -1400px; }
 }
 #words{
 /*	position: fixed;*/
