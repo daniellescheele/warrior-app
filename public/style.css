@@ -13,29 +13,35 @@ position: fixed;
 	margin-right: 25px;
 	padding-left: 8%;
 	padding-top: 3%;
-	padding-right:4%;
+	padding-right:9%;
 }
 
 .container-fluid{
+
 	margin: 0px;
 	padding:0px;
 	width:100%;
 }
+.swinger {
+	position:absolute;
+	display: inline;
+}
 /*.wrapper1{
-	position:relative;
-	z-index: -2;
-	background-image: url(roles/clothes1.png);
+	background-image: url(roles/clothes3.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	height:700px;
+	height:500px;
 	margin:0px;
 	padding:0px;
-	width:100%;
+
 }*/
 
 form {
 	padding: 5%;
+}
+form h3{
+	display: inline;
 }
 .image {
 	background-image:url(roles/border.png);
@@ -210,6 +216,8 @@ input[type=radio] {
      to { background-position: 1500px; }
 }
 .swingimage{
+		position: relative;
+		z-index:-2;
 		display: inline;
 		margin-left:80%;
 
@@ -248,4 +256,64 @@ input[type=radio] {
 		from { background-position: 0px; }
      to { background-position: -800px; }
 }
+#words{
+/*	position: fixed;*/
+	bottom: 20%;
+	left:20%;
+	width:100%;
+}
+#wordsContainer {
+	width: 100%;
+	height: 60px;
+	opacity: 70%;
+	background-image: url("roles/words.png");
+	animation: words 20s linear infinite;
+
+}
+@keyframes words{
+   from { background-position: 0px; }
+     to { background-position: 1800px; }
+}
+/*#bird2{
+
+	bottom: 20%;
+	left:20%;
+	width:100%;
+}
+#bird2Container {
+	width: 200px;
+
+
+	height: 200px;
+
+	opacity: 70%;
+	background-image: url("roles/bird2.png");
+	animation: bd 2.50s steps(2) infinite;
+
+}
+@keyframes bd{
+   from { background-position: 0px; }
+     to { background-position: 400px; }
+}*/
+/*#bird2 {
+  position: relative;
+  overflow: hidden;
+
+}
+#bird2Container {
+  background-image: url("roles/bird2.png");
+
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  animation: bd 15s linear infinite;
+}
+@keyframes bd{
+	from {
+    transform: translate(0, 0);}
+  to {
+    transform: translate(-1600px, 1600px);}
+    }
+*/
+
 

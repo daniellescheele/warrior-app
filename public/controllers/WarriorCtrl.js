@@ -137,11 +137,15 @@ const data = (snapshot.val())
 
 
 	warrior.getQuote = function () {
-     $http.get("https://api.forismatic.com/api/1.0/?method=getQuote&format=html&lang=en")
+
+     $http.get("http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?")
        .then (response => {
-       		 	response.addHeader(HttpHeaders.Names.ACCESS_CONTROL_REQUEST_HEADERS, "X-Key");
-						response.addHeader(HttpHeaders.Names.ACCESS_CONTROL_REQUEST_HEADERS, "X-Signature");
-						response.addHeader(HttpHeaders.Names.ACCESS_CONTROL_REQUEST_HEADERS, "Content-Type");
+      //  		 	response.addHeader(HttpHeaders.Names.ACCESS_CONTROL_REQUEST_HEADERS, "X-Key");
+						// response.addHeader(HttpHeaders.Names.ACCESS_CONTROL_REQUEST_HEADERS, "X-Signature");
+						// response.addHeader(HttpHeaders.Names.ACCESS_CONTROL_REQUEST_HEADERS, "Content-Type");
+						response.addHeader("Access-Control-Allow-Origin", "*");
+						response.addHeader("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With");
+						response.addHeader("Access-Control-Allow-Methods", "GET, PUT, POST");
             warrior.quote = response
             console.log("please show a quote", warrior.quote);
             return warrior.quote;
